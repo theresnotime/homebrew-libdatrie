@@ -20,7 +20,6 @@ class Libdatrie < Formula
     (testpath/"test.c").write <<~EOS
       #include <datrie/trie.h>
       #include <stdio.h>
-      
       int main() {
         Trie *trie = trie_new_from_file("/dev/null");
         if (trie == NULL) {
@@ -30,10 +29,10 @@ class Libdatrie < Formula
         return 1;
       }
     EOS
-    
+
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-ldatrie", "-o", "test"
     system "./test"
-    
+
     # Test the trietool binary
     assert_predicate bin/"trietool", :exist?
     assert_predicate bin/"trietool-0.2", :exist?

@@ -34,7 +34,7 @@ class Libdatrie < Formula
     system "./test"
 
     # Test the trietool binary
-    assert_predicate bin/"trietool", :exist?
-    assert_predicate bin/"trietool-0.2", :exist?
+    assert_path_exists bin/"trietool"
+    assert_path_exists bin/"trietool-0.2"
   end
 end
